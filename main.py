@@ -12,7 +12,7 @@ def readFile():
         #List of scores of books
         scores = []
         for i in range(int(contents.split("\n")[0].split(" ")[0])):
-            scores.append(int(contents.split("\n")[0].split(" ")[i]))
+            scores.append(int(contents.split("\n")[1].split(" ")[i]))
 
         #Creating libs
         for i in range(int(contents.split("\n")[0].split(" ")[1])):
@@ -22,21 +22,20 @@ def readFile():
             books = []
             #Creating books
             for j in range(int(contents.split("\n")[i*2+2].split(" ")[0])):
-                books.append(l.Book(int(contents.split("\n")[i*2+3].split(" ")[j]), )
+                newBook = l.Book(int(contents.split("\n")[i*2+3].split(" ")[j]))
+                newBook.score = score[newBook.ID_book]
+                books.append(newBook)
 
+            lib.books = books
+            
             #Creating libs to the list
-            libs.append()
-
-        maxi = int(content.split("\n")[0].split(" ")[0])
-        contenList = content.split("\n")[1].split(" ")
-        for c in contenList:
-            books.append(int(c))
+            libs.append(lib)
+            
+            f.close()
+            return libs
     
     f.close()
-
-    if f.mode == 'r':
-        return 1
-    return 0
+    return None
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Programme principal
