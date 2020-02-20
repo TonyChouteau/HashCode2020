@@ -16,3 +16,4 @@ def score(L,daysMax):
         daysPassed += 1 #new day
         if(daysPassed >= L[cList].time) :
             cList += 1 #allow next lib to score when finally registered
+    return cScore

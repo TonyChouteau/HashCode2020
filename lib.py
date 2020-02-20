@@ -1,5 +1,23 @@
 
 
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Classe système
+# ---------------------------------------------------------------------------------------------------------------------
+
+class System:
+
+    def __init__( self, max_days = 0 ):
+        """
+        Constructeur
+
+        :param max_days: Nombre maximum de jour pour tout traiter.
+        """
+        self.libraries = []
+        self.max       = max_days
+
+
 # ---------------------------------------------------------------------------------------------------------------------
 # Classe des livres
 # ---------------------------------------------------------------------------------------------------------------------
@@ -46,6 +64,15 @@ class Library:
         self.books = []
         self.time  = time
         self.scannable_books_per_day = scannable_books_per_day
+
+    def add_book( self, book ):
+        """
+        Ajoute un livre dans la bibliothèque
+
+        :param book: Instance de Book
+        """
+
+        pass
 
     def __str__( self ):
         """
