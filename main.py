@@ -43,6 +43,9 @@ def readFile():
 # ---------------------------------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    # Programme principal ici
 
-    print( "Test" )
+    # Liste des bibliothèques
+    libraries = []
+
+    # Lecture des entrées
+    readFile()
