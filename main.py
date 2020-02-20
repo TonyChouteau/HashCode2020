@@ -7,7 +7,7 @@ books = []
 def readFile():
     global maxi
 
-    f= open("b_small.in","r")
+    f= open("a_example.txt","r")
     if f.mode == 'r':
         content = f.read()
         #print(contents.split("\n")[1].split(" "))
