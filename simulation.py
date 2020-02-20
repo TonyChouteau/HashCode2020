@@ -44,6 +44,6 @@ def score(system):
             cList += 1 #allow next lib to score when finally registered
     
     system.signed_libraries = cList
-    #print()
+    print(cScore)
     
     return system

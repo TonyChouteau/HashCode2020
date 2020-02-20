@@ -5,8 +5,8 @@ import simulation as s
 
 def readFile(system):
 
-    f= open("a_example.txt","r")
-    #f= open("b_read_on.txt","r")
+    #f= open("a_example.txt","r")
+    f= open("b_read_on.txt","r")
     if f.mode == 'r':
         content = f.read()
         libs = []
@@ -84,4 +84,5 @@ if __name__ == "__main__":
         score = s.score(system)
         print(score)
 
+        print("Writing in file")
         writeFile(system)
