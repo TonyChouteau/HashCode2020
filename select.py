@@ -62,5 +62,5 @@ def sortSys(sys):
     libRatio.sort(key=takeSecond)
     res = []
     for k in range(len(libRatio)):
-        res.append(sys.libraries[libRatio[k]])
+        res.append(sys.libraries[libRatio[k][0]])
     return res
