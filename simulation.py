@@ -1,6 +1,8 @@
 import lib as l
 
-def score(L,daysMax):
+def score(system):
+    daysMax = system.max 
+    L = system.libraries
     daysPassed = 0
     cScore = 0
     cList = 0

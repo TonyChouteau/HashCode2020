@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import numpy as np
 import lib as l
 import simulation as s
@@ -54,4 +55,4 @@ if __name__ == "__main__":
     # Lecture des entrées
     if (system != None):
         print(system.libraries)
-        #s.score(system)
+        s.score(system)
