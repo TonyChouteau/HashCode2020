@@ -1,11 +1,18 @@
 import lib as l
 
 def score(system):
+
+    result = [
+
     daysMax = system.max 
     L = list(system.libraries)
+
     daysPassed = 0
     cScore = 0
     cList = 0
+
+    daysBefore = 0
+
     cursors = []
     readBooks = []
     
@@ -29,9 +36,16 @@ def score(system):
                 if (bookSent is not None and id not in readBooks):
                     readBooks.append(id)
                     cScore += bookSent.score
+                    system.libraries[i].scanned_books.append(id)
+
                 bookSent = None
 
         daysPassed += 1 #new day
-        if(cList<=len(L)-1 and daysPassed >= L[cList].time) :
+        if(cList<=len(L)-1 and daysPassed >= L[cList].time+daysBefore) :
+            daysBefore+=L[cList].time
             cList += 1 #allow next lib to score when finally registered
-    return cScore
+    
+    system.signed_libraries = cList
+    #print()
+    
+    return system
