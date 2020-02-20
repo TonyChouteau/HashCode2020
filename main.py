@@ -41,6 +41,16 @@ def readFile(system):
     f.close()
     return None
 
+# def writeFile(system):
+#     f= open("result.txt","w")
+#     f.write("%d\n",system.nbrLibs)
+#     for i in range(system.nbrLibs):
+#         f.write("%d %d\n",system.libraries[i].id,system.libraries[i].nbrBooks)
+#         for j in range(system.libraries[i].nbrBooks):
+#             f.write("%d ",system.libraries[i].books[i])
+#         f.write("\n")
+#     f.close()
+
 # ---------------------------------------------------------------------------------------------------------------------
 # Programme principal
 # ---------------------------------------------------------------------------------------------------------------------
