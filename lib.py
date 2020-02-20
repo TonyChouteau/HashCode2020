@@ -32,7 +32,7 @@ class Library:
         :param scannable_books_per_day: Nombre de livres que la bibliothèque peut scanner (entier, 0 si non indiqué)
         """
 
-        self.id = ID_lib
+        self.id    = ID_lib
         self.books = []
         self.time  = time
         self.scannable_books_per_day = scannable_books_per_day
