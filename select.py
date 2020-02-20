@@ -1,8 +1,12 @@
 import numpy as np 
 import random as r
 import math as m
+import simulation as s
 
 temperature = 10000
+currentA = 0
+currentB = 0
+currentList = []
 
 def isSelected(score1, score2):
     global temperature
@@ -19,6 +23,7 @@ def isSelected(score1, score2):
             return False
 
 def permute(L,cA,cB):
+    global temperature
     P = L.copy()
     a = r.randint(0,len(L)-1)
     b = r.randint(0,len(L)-1)
@@ -27,4 +32,16 @@ def permute(L,cA,cB):
     temp = P[a]
     P[a] = P[b]
     P[b] = temp
+    cA,cB = a,b
+    temperature -= 1
     return P
+
+def nextStep(L):
+    global temperature, currentA, currentB, currentList
+    assert temperature > 0
+    temperature -= 1
+    sL = s.score(currentList)
+    P = permute(L,currentA,currentB)
+    sP = s.score(P)
+    if isSelected(sL,sP):
+        currentList = sP
