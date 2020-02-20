@@ -17,6 +17,3 @@ def isSelected(score1, score2):
             return True
         else : #Avec une proba de plus en plus forte, on la rejette
             return False
-
-
-def permute():
