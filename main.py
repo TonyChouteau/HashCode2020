@@ -2,6 +2,7 @@
 import numpy as np
 import lib as l
 import simulation as s
+import select as se
 
 def readFile(system):
 
@@ -80,6 +81,7 @@ if __name__ == "__main__":
     if (system != None):
         #print(system.libraries)
         print("Starting the simulation")
+        system.libraries = se.sortSys(system)
         score = s.score(system)
         print(score)
 
