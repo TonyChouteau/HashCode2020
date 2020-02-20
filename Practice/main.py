@@ -16,7 +16,7 @@ def readFile():
     f= open("b_small.in","r")
     if f.mode == 'r':
         content = f.read()
-        #print(contents.split("\n")[1].split(" "))
+        #print(content.split("\n")[1].split(" "))
         maxi = int(content.split("\n")[0].split(" ")[0])
         contenList = content.split("\n")[1].split(" ")
         for c in contenList:
