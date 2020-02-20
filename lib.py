@@ -17,22 +17,7 @@ class System:
 
         self.libraries = []
         self.max       = max_days
-
-    def signed_libraries( self ):
-        """
-        :return: Renvoie le nombre de bibliothèques qui ont été enregistrées
-        """
-
-        if len( self.libraries ) > 0:
-            counter, library = 0, self.libraries[0]
-
-            while len( library.scanned_books() ) > 0 and counter < len( self.libraries ):
-                counter += 1
-                library = self.libraries[ counter ]
-
-            return counter
-        else:
-            return 0
+        self.signed_libraries = 0
 
 
 # ---------------------------------------------------------------------------------------------------------------------
