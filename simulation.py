@@ -1,7 +1,7 @@
 import lib as l
 
 def score(system):
-
+    
     daysMax = system.max 
     L = list(system.libraries)
 
@@ -17,7 +17,7 @@ def score(system):
     for _ in range(len(L)):
         cursors.append(0)
 
-    while(daysPassed < daysMax):
+    while(daysPassed < 1500):
         if (daysPassed%(daysMax/10) == 0):
                 print(daysPassed,"days over",daysMax)
         for i in range(cList) :

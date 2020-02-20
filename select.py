@@ -56,11 +56,11 @@ def sortSys(sys):
         regTime = sys.libraries[i].time
         scannable = sys.libraries[i].scannable_books_per_day
         weight = 0
-        for j in range(len(sys.libraries[i].books)):
+        for j in range(len(sys.libraries[i].books)//3):
             weight += sys.libraries[i].books[j].score
-        libRatio.append((i,(weight*scannable)/regTime))
+        libRatio.append((i,weight))
     libRatio.sort(key=takeSecond)
     res = []
     for k in range(len(libRatio)):
-        res.append(sys.libraries[libRatio[k][0])
+        res.append(sys.libraries[libRatio[k][0]])
     return res
