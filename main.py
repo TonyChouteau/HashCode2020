@@ -3,6 +3,9 @@ import numpy as np
 #Books
 #Copybooks = Books.sort().reverse()
 books = []
+booksNbr = 0
+libNbr = 0
+totalTime = 0
 
 def readFile():
     global maxi
