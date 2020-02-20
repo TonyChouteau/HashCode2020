@@ -14,8 +14,12 @@ class System:
 
         :param max_days: Nombre maximum de jour pour tout traiter.
         """
+
         self.libraries = []
         self.max       = max_days
+
+    def signed_libraries( self ):
+        return len([ library for library in self.libraries if len(library.scanned_books) > 0 ])
 
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -65,6 +69,9 @@ class Library:
         self.time  = time
         self.scannable_books_per_day = scannable_books_per_day
 
+        # Liste des livres qui ont été signés
+        self.scanned_books = []
+
     def add_book( self, book ):
         """
         Ajoute un livre dans la bibliothèque
@@ -81,6 +88,10 @@ class Library:
 
         self.books.insert( position, book )
 
+    def scanned_books( self ):
+        """
+        :return: Le nombre des livres ayant eu le temps
+        """
 
     def __str__( self ):
         """
