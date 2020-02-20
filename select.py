@@ -6,7 +6,7 @@ import simulation as s
 temperature = 10000
 currentA = 0
 currentB = 0
-currentList = []
+currentSys = []
 
 def isSelected(score1, score2):
     global temperature
@@ -22,26 +22,27 @@ def isSelected(score1, score2):
         else : #Avec une proba de plus en plus forte, on la rejette
             return False
 
-def permute(L,cA,cB):
+def permute(cSys,cA,cB):
     global temperature
-    P = L.copy()
-    a = r.randint(0,len(L)-1)
-    b = r.randint(0,len(L)-1)
+    nSys = cSys.copy()
+    libnS = cSys.libraries
+    a = r.randint(0,len(libnS)-1)
+    b = r.randint(0,len(libnS)-1)
     while(b == a or a == cA and b == cB):
-        b = r.randint(0,len(L)-1)
-    temp = P[a]
-    P[a] = P[b]
-    P[b] = temp
+        b = r.randint(0,len(libnS)-1)
+    temp = libnS[a]
+    libnS[a] = libnS[b]
+    libnS[b] = temp
     cA,cB = a,b
     temperature -= 1
-    return P
+    return nSys
 
-def nextStep(L):
-    global temperature, currentA, currentB, currentList
+def nextStep():
+    global temperature, currentA, currentB, currentSys
     assert temperature > 0
     temperature -= 1
-    sL = s.score(currentList)
-    P = permute(L,currentA,currentB)
-    sP = s.score(P)
-    if isSelected(sL,sP):
-        currentList = sP
+    s1 = s.score(currentSys)
+    newSys = permute(currentSys,currentA,currentB)
+    s2 = s.score(newSys)
+    if isSelected(s1,s2):
+        currentSys = s2
