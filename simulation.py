@@ -12,10 +12,11 @@ def score(system):
     while(daysPassed < daysMax):
         for i in range(cList) :
             for _ in range(L[i].scannable_books_per_day) :
-                cScore += L[i].books[cursors[i]] #get score of parsed book in lib
-                cursors[i] += 1 #increment parsing
+                if(cursors[i] < len(L[i].books)):
+                    cScore += L[i].books[cursors[i]].score #get score of parsed book in lib
+                    cursors[i] += 1 #increment parsing
 
         daysPassed += 1 #new day
-        if(daysPassed >= L[cList].time) :
+        if(cList<=len(L)-1 and daysPassed >= L[cList].time) :
             cList += 1 #allow next lib to score when finally registered
     return cScore

@@ -26,7 +26,7 @@ def readFile(system):
             for j in range(int(content.split("\n")[i*2+2].split(" ")[0])):
                 newBook = l.Book(int(content.split("\n")[i*2+3].split(" ")[j]))
                 newBook.score = scores[newBook.id]
-                newLib.addBook(newBook)
+                newLib.add_book(newBook)
             
             #Adding lib to the list
             libs.append(newLib)
@@ -35,7 +35,7 @@ def readFile(system):
         system.max = int(content.split("\n")[0].split(" ")[2])
 
         f.close()
-        print(system)
+        #print(system)
         return system
     
     f.close()
@@ -54,5 +54,6 @@ if __name__ == "__main__":
     
     # Lecture des entrées
     if (system != None):
-        print(system.libraries)
-        s.score(system)
+        #print(system.libraries)
+        score = s.score(system)
+        print(score)
