@@ -1,19 +1,16 @@
 import numpy as np
+import lib as l
 
-#Books
-#Copybooks = Books.sort().reverse()
-books = []
-booksNbr = 0
-libNbr = 0
-totalTime = 0
+libs = []
 
 def readFile():
-    global maxi
 
     f= open("a_example.txt","r")
     if f.mode == 'r':
         content = f.read()
         #print(contents.split("\n")[1].split(" "))
+        books.append(l.Library)
+
         maxi = int(content.split("\n")[0].split(" ")[0])
         contenList = content.split("\n")[1].split(" ")
         for c in contenList:
