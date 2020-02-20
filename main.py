@@ -59,8 +59,7 @@ def writeFile(system):
     f.write( f"{system.signed_libraries}\n" )
     for i in range(system.signed_libraries):
         f.write(f"{system.libraries[i].id} {len( system.libraries[i].scanned_books )}\n")
-        for j in range(len( system.libraries[i].scanned_books )):
-            f.write( f"{system.libraries[i].scanned_books[j]} " )
+        f.write( " ".join([ str(e) for e in system.libraries[i].scanned_books ]) )
         f.write("\n")
     f.close()
 
