@@ -16,7 +16,7 @@ def readFile(system):
             scores.append(int(content.split("\n")[1].split(" ")[i]))
 
         #Creating libs
-        print(int(content.split("\n")[0].split(" ")[1]))
+        #print(int(content.split("\n")[0].split(" ")[1]))
         for i in range(int(content.split("\n")[0].split(" ")[1])):
             #Creating the library from the file
             newLib = l.Library(i,int(content.split("\n")[i*2+2].split(" ")[1]), int(content.split("\n")[i*2+2].split(" ")[2]))
