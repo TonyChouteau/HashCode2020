@@ -5,6 +5,7 @@ import math as m
 temperature = 10000
 
 def isSelected(score1, score2):
+    global temperature
     temperature -= 1
     diff = score2-score1
     if diff > 0 : #La solution est meilleure, on la garde
@@ -16,3 +17,6 @@ def isSelected(score1, score2):
             return True
         else : #Avec une proba de plus en plus forte, on la rejette
             return False
+
+
+def permute():
