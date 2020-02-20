@@ -7,12 +7,14 @@ def score(system):
     cScore = 0
     cList = 0
     cursors = []
+    readBooks = []
     for _ in range(len(L)):
         cursors.append(0)
     while(daysPassed < daysMax):
         for i in range(cList) :
             for _ in range(L[i].scannable_books_per_day) :
-                if(cursors[i] < len(L[i].books)):
+                if(cursors[i] < len(L[i].books) and L[i].books[cursors[i]] not in readBooks):
+                    readBooks.append(L[i].books[cursors[i]])
                     cScore += L[i].books[cursors[i]].score #get score of parsed book in lib
                     cursors[i] += 1 #increment parsing
 
