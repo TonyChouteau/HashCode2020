@@ -1,13 +1,13 @@
 import numpy as np
 import lib as l
+import simulation as s
 
-libs = []
-
-def readFile():
+def readFile(system):
 
     f= open("a_example.txt","r")
     if f.mode == 'r':
         content = f.read()
+        libs = []
 
         #List of scores of books
         scores = []
@@ -17,7 +17,7 @@ def readFile():
         #Creating libs
         for i in range(int(contents.split("\n")[0].split(" ")[1])):
             #Creating the library from the file
-            newLib = l.Library(i,int(contents.split("\n")[i*2+2].split(" ")[1], int(contents.split("\n")[i*2+2].split(" ")[2]))
+            newLib = l.Library(i,int(contents.split("\n")[i*2+2].split(" ")[1], int(contents.split("\n")[i*2+2].split(" ")[2])))
             
             books = []
             #Creating books
@@ -26,13 +26,17 @@ def readFile():
                 newBook.score = score[newBook.ID_book]
                 books.append(newBook)
 
+            #Adding books to the lib
             lib.books = books
             
-            #Creating libs to the list
+            #Adding lib to the list
             libs.append(lib)
-            
-            f.close()
-            return libs
+
+        system.librarys = libs
+        system.max = int(contents.split("\n")[0].split(" ")[2])
+
+        f.close()
+        return libs
     
     f.close()
     return None
@@ -44,7 +48,10 @@ def readFile():
 if __name__ == "__main__":
 
     # Liste des bibliothèques
-    libraries = []
+    system = l.System()
 
     # Lecture des entrées
-    readFile()
+    if (readFile(system) != None):
+        print(system.libs, system.max)
+        #s.score(system)
+    
