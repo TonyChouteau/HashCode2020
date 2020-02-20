@@ -69,10 +69,18 @@ class Library:
         """
         Ajoute un livre dans la bibliothèque
 
-        :param book: Instance de Book
+        :param book: Instance de Book à ajouter
         """
 
-        pass
+        position = len( self.books )
+
+        for i in range( len(self.books) ):
+            if book.score >= self.books[i].score:
+                position = i
+                break
+
+        self.books.insert( position, book )
+
 
     def __str__( self ):
         """
@@ -82,3 +90,20 @@ class Library:
         """
 
         return f"Bibliothèque<id: {self.id}, time: {self.time}, scannable_books_per_day: {self.scannable_books_per_day}, books: {self.books} >"
+
+
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Test
+# ---------------------------------------------------------------------------------------------------------------------
+
+if __name__ == "__main__":
+
+    library = Library()
+    library.add_book( Book( 1, 20 ) )
+    library.add_book( Book( 2, 21 ) )
+    library.add_book( Book( 3, 22 ) )
+    library.add_book( Book( 4, 19 ) )
+
+    for book in library.books:
+        print( book )
