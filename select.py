@@ -46,3 +46,21 @@ def nextStep():
     s2 = s.score(newSys)
     if isSelected(s1,s2):
         currentSys = s2
+
+def takeSecond(e):
+    return e[1]
+
+def sortSys(sys):
+    libRatio = []
+    for i in range(len(sys.libraries)):
+        regTime = sys.libraries[i].time
+        scannable = sys.libraries[i].scannable_books_per_day
+        weight = 0
+        for j in range(scannable):
+            weight += sys.libraries[i].books[j].score
+        libRatio[i].append((i,(weight*scannable)/regTime))
+    libRatio.sort(key=takeSecond)
+    res = []
+    for k in range(len(libRatio)):
+        res.append(sys.libraries[libRatio[k]])
+    return res
