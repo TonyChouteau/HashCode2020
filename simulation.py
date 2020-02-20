@@ -13,7 +13,10 @@ def score(system):
         cursors.append(0)
 
     while(daysPassed < daysMax):
+        if (daysPassed%(daysMax/10) == 0):
+                print(daysPassed,"days over",daysMax)
         for i in range(cList) :
+            #print(i/cList*100,"%")
             for _ in range(L[i].scannable_books_per_day):
                 id = -1
                 bookSent = None
