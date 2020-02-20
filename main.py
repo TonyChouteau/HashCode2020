@@ -54,15 +54,15 @@ def readFile(system):
     f.close()
     return None
 
-# def writeFile(system):
-#     f= open("result.txt","w")
-#     f.write("%d\n",system.nbrLibs)
-#     for i in range(system.nbrLibs):
-#         f.write("%d %d\n",system.libraries[i].id,system.libraries[i].nbrBooks)
-#         for j in range(system.libraries[i].nbrBooks):
-#             f.write("%d ",system.libraries[i].books[i])
-#         f.write("\n")
-#     f.close()
+def writeFile(system):
+    f= open("result.txt","w")
+    f.write( f"{system.signed_libraries}\n" )
+    for i in range(system.signed_libraries):
+        f.write(f"{system.libraries[i].id} {len( system.libraries[i].scanned_books )}\n")
+        for j in range(len( system.libraries[i].scanned_books )):
+            f.write( f"{system.libraries[i].scanned_books[j]} " )
+        f.write("\n")
+    f.close()
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Programme principal
@@ -83,3 +83,5 @@ if __name__ == "__main__":
         print("Starting the simulation")
         score = s.score(system)
         print(score)
+
+        writeFile(system)

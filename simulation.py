@@ -2,8 +2,6 @@ import lib as l
 
 def score(system):
 
-    result = [
-
     daysMax = system.max 
     L = list(system.libraries)
 
