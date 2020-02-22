@@ -3,11 +3,12 @@ import numpy as np
 import lib as l
 import simulation as s
 import select as se
+import mostBooks as mb
 
 def readFile(system):
 
     #f= open("a_example.txt","r")
-    f= open("b_read_on.txt","r")
+    f= open("c_incunabula.txt","r")
     if f.mode == 'r':
         content = f.read()
         libs = []
@@ -64,6 +65,15 @@ def writeFile(system):
         f.write("\n")
     f.close()
 
+def writeFileBis(system,L):
+    f= open("bis_c_output.txt","w")
+    f.write( f"{len(L)}\n" )
+    for i in range(len(L)):
+        f.write(f"{L[i][0]} {L[i][1]}\n")
+        f.write( " ".join([ str(system.libraries[L[i][0]].books[e].id) for e in range(L[i][1]) ]) )
+        f.write("\n")
+    f.close()
+
 # ---------------------------------------------------------------------------------------------------------------------
 # Programme principal
 # ---------------------------------------------------------------------------------------------------------------------
@@ -80,10 +90,15 @@ if __name__ == "__main__":
     # Lecture des entrées
     if (system != None):
         #print(system.libraries)
-        print("Starting the simulation")
-        system.libraries = se.sortSys(system)
-        score = s.score(system)
-        print(score)
+        # print("Starting the simulation")
+        # system.libraries = se.sortSys(system)
+        # score = s.score(system)
+        # print(score)
+
+        libs = system.libraries.copy()
+        mb.getLib(libs,system.max)
+        L = mb.getLibList()
 
         print("Writing in file")
-        writeFile(system)
+        writeFileBis(system,L)
+        # writeFile(system)
